@@ -28,14 +28,14 @@ class User extends Authenticatable
     ];
 
     public function posts(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post','user_id','id');
     }
 
     public function comment_owner(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Comment','owner_user_id','id');
     }
 
     public function comment_target(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Comment','target_user_id','id');
     }
 }

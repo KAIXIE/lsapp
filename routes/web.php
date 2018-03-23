@@ -14,7 +14,8 @@
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
-
+Route::resource("comments","CommentsController");
+Route::post('/comments/{id}', 'CommentsController@store');
 Route::resource("posts","PostsController");
 Auth::routes();
 

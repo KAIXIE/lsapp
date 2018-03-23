@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use App\Post;
 
 class Comment extends Model
 {
@@ -21,11 +23,11 @@ class Comment extends Model
     }
 
     public function ownerUser(){
-        return $this->belongsTo('App\User','owner_user_id');
+        return $this->belongsTo('App\User','owner_user_id','id');
     }
 
     public function targetUser(){
-        return $this->belongsTo('App\User','target_user_id');
+        return $this->belongsTo('App\User','target_user_id','id');
     }
 
     
